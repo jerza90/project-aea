@@ -18,4 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/dashboard-v1', 'HomeController@dashboardV1')->name('dashboard-v1');
-Route::get('/dashboard-v2', 'HomeController@dashboardV2')->name('dashboard-v2');
+
+Route::get('/dashboard', 'HomeController@dashboardV1')->name('dashboard-v1');
+
+Route::get('/travelbuddy', 'BuddyController@index')->name('buddy-v1');
+
+Route::get('/profile','ProfileController@index')->name('profile');

@@ -28,14 +28,14 @@
             <li class="header">MAIN NAVIGATION</li>
             <li class="active treeview menu-open">
                 <a href="#">
-                    <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                    <i class="fa fa-dashboard"></i> <span>Travel</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{!! url('/dashboard-v1') !!}"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-                    <li class="active"><a href="{!! url('/dashboard-v2') !!}"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+                    <li><a href="{!! url('/travelbuddy') !!}"><i class="fa fa-circle-o"></i>Travel Buddy</a></li>
+                    <!-- <li class="active"><a href="{!! url('/dashboard-v2') !!}"><i class="fa fa-circle-o"></i> Dashboard v2</a></li> -->
                 </ul>
             </li>
             <li class="treeview">

@@ -26,8 +26,8 @@ class HomeController extends Controller
         return view('templates.dashboard-v1');
     }
 
-    public function dashboardV2()
+    public function dashboard()
     {
-        return view('templates.dashboard-v2');
+        return view('templates.dashboard-v1');
     }
 }
