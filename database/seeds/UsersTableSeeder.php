@@ -17,7 +17,13 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('admin'),
         ]);
 
+        $admin = \App\User::create([
+            'name'     => 'jer azhar',
+            'email'    => 'jer_90@yahoo.com',
+            'password' => bcrypt('admin'),
+        ]);
+
         //Faker timeline
-        
+
     }
 }
