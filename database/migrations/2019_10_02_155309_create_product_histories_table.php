@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBuddiesTable extends Migration
+class CreateProductHistoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class CreateBuddiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('buddies', function (Blueprint $table) {
+        Schema::create('product_histories', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('product_code')->length(24)->references('product_code')->on('products');
+            $table->Integer('product_unit')->unsigned();
+            $table->double('price_per_unit');
+            $table->string('product_owner')->length(24);
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ class CreateBuddiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('buddies');
+        Schema::dropIfExists('product_histories');
     }
 }
