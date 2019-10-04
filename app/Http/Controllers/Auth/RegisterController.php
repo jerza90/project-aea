@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -49,8 +50,9 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'f_name' => ['required', 'string', 'max:255'],
+            'l_name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email','unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
         ]);
     }
@@ -64,9 +66,30 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'first_name' => $data['f_name'],
+            'last_name' => $data['l_name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    public function register(Request $request){
+        $this->validator($request->all())->validate();
+
+        // A Registered event is created and will trigger any relevant
+        // observers, such as sending a confirmation email or any 
+        // code that needs to be run as soon as the user is created.
+        // event(new Registered($user = $this->create($request->all())));
+        $user = $this->create($request->all());
+
+        // After the user is created, he's logged in.
+        $this->guard()->login($user);
+
+        return $this->registered($request,$user) ? : redirect($redirectTo);
+    }
+
+    public function registered(Request $request,User $user){
+        $user->generateToken();
+        return response()->json(['data' => $user->toArray()], 201);
     }
 }
