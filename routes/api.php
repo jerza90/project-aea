@@ -28,3 +28,5 @@ Route::post('product','ProductController@store');
 
 Route::post('register', 'Auth\RegisterController@register');
 
+Route::post('login', 'Auth\LoginController@login');
+
