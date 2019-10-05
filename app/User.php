@@ -52,4 +52,11 @@ class User extends Authenticatable
         $this->first_name = $first_name;
         $this->last_name = $last_name;
     }
+
+    public function generateToken(){
+        $this->api_token = str_random(60);
+        $this->save();
+
+        return $this->api_token;
+    }
 }
