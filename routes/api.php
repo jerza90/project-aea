@@ -18,15 +18,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::get('/user', 'HomeController@dashboardV1')->name('dashboard-v1');
-
-Route::get('product','ProductController@index');
-
-Route::get('product/{product}','ProductController@show');
-
-Route::post('product','ProductController@store');
-
+//passport auth route
 Route::post('register', 'Auth\RegisterController@register');
-
 Route::post('login', 'Auth\LoginController@login');
 
+//user route
+Route::get('/user', 'HomeController@dashboardV1')->name('dashboard-v1');
+
+//product route
+Route::get('product','ProductController@index');
+Route::get('product/{product}','ProductController@show');
+Route::post('product','ProductController@store');
+Route::put('product/{product}','ProductController@update');
