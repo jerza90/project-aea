@@ -30,3 +30,9 @@ Route::get('product','ProductController@index');
 Route::get('product/{product}','ProductController@show');
 Route::post('product','ProductController@store');
 Route::put('product/{product}','ProductController@update');
+
+//services
+Route::get('service','ServiceController@index');
+Route::get('service/{service}','ServiceController@show');
+Route::post('service','ServiceController@store');
+Route::post('service/{service}','ServiceController@update');
