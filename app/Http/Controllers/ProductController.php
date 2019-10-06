@@ -22,4 +22,12 @@ class ProductController extends Controller
         $newproduct = Product::create($request->toArray());
         return response()->json($request->toArray(), 201);
     }
+
+    public function update(Request $request,Product $product)
+    {
+        $prod = Product::findorFail($product);
+        return response()->json(['data'=>$product,'req'=>$request->all()]);
+        // $product->update($request->all());
+        // return response()->json($product, 200);
+    }
 }
