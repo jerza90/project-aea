@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Traveltime as travel;
+use App\Product as product;
 
 class ProfileController extends Controller
 {
@@ -18,7 +18,7 @@ class ProfileController extends Controller
       $data['user'] = auth()->user();
 
       //timeline data
-      $data['travels'] = travel::all();
+      $data['product'] = product::all();
 
       return view('profile.user_profile',$data);
 

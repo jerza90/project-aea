@@ -214,11 +214,11 @@
                 <!-- The timeline -->
                 <ul class="timeline timeline-inverse">
 
-                  @foreach($travels as $travel)
+                  @foreach($product as $item)
                   <!-- timeline time label -->
                   <li class="time-label">
                         <span class="bg-red">
-                          {{date('d-M-Y', strtotime($travel->datetravel))}}
+                          {{date('d-M-Y', strtotime($item->product_name))}}
                         </span>
                   </li>
                   <!-- /.timeline-label -->
@@ -229,10 +229,10 @@
                     <div class="timeline-item">
                       <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
 
-                      <h3 class="timeline-header"><a href="#">{{$travel->title}}</a> sent you an email</h3>
+                      <h3 class="timeline-header"><a href="#">{{$item->product_code}}</a> sent you an email</h3>
 
                       <div class="timeline-body">
-                        {{$travel->short_desc}}
+                        {{$item->product_unit}}
                       </div>
                       <div class="timeline-footer">
                         <a class="btn btn-primary btn-xs">Read more</a>

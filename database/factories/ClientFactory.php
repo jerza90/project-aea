@@ -12,5 +12,6 @@ $factory->define(App\Client::class, function (Faker $faker) {
         'client_hp'=>$faker->unique()->randomNumber(8),
         'client_email'=>$faker->unique()->safeEmail,
         'country_code'=>$faker->randomElement($countries)
+        // 'traveldate'=>$faker->dateTime()->format('Y-m-d H:i:s')
     ];
 });
