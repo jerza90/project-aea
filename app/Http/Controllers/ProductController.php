@@ -25,9 +25,7 @@ class ProductController extends Controller
 
     public function update(Request $request,Product $product)
     {
-        $prod = Product::findorFail($product);
-        return response()->json(['data'=>$product,'req'=>$request->all()]);
-        // $product->update($request->all());
-        // return response()->json($product, 200);
+        $product->update($request->all());
+        return response()->json($product, 200);
     }
 }

@@ -21,6 +21,6 @@ Route::get('/dashboard-v1', 'HomeController@dashboardV1')->name('dashboard-v1');
 
 Route::get('/dashboard', 'HomeController@dashboardV1')->name('dashboard-v1');
 
-Route::get('/travelbuddy', 'BuddyController@index')->name('buddy-v1');
+Route::get('/product', 'ProductController@index')->name('product');
 
 Route::get('/profile','ProfileController@index')->name('profile');
