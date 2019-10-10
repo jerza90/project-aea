@@ -33,5 +33,6 @@ class ServiceController extends Controller
         $service->update($request->toArray());
         return response()->json(['data'=>$request->all(),'status'=>200]);
     }
+    //comment
 }
 
