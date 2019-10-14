@@ -8,11 +8,19 @@ use Illuminate\Http\Request;
 class ServiceController extends Controller
 {
     //all
-    public function index(){
-        return Service::all();
+    public function index(Request $request){
+        // return Service::all();
+        // return response()->json(['data'=>$request->getContent()]);
+
+        $data = $request->getContent();
+        $dtax = json_decode($data,true);
+        // echo $dtax['services_name'];
+        print_r($data);
+        
     }
 
     // get specific service by id
+    
     public function show(Service $service){
         // return Service::find($id);
         return $service;
