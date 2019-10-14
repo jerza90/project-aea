@@ -11,12 +11,19 @@ class ServiceController extends Controller
     public function index(Request $request){
         // return Service::all();
         // return response()->json(['data'=>$request->getContent()]);
-
-        $data = $request->getContent();
-        $dtax = json_decode($data,true);
-        // echo $dtax['services_name'];
-        print_r($data);
         
+
+        // $data = $request->getContent();
+        // return response(json_decode($data,true));die();
+
+        if(!empty($request['services_id'])){
+            $res = Service::find($request['services_id']);
+        }else{
+            $res = Service::all();
+        }
+        // return response(array('data'=>$res,'mesg'=>'OK'),200)->header('Content-Type','Application/Json');
+        return response(json_encode(['data'=>$res,'success'=>'yes']))->header('Content-Type','Application/Json');
+
     }
 
     // get specific service by id
