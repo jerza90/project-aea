@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Service;
+use \Illuminate\Database\QueryException;
 
 use Illuminate\Http\Request;
 
@@ -37,8 +38,22 @@ class ServiceController extends Controller
     //add new service
     public function store(Request $request)
     {
-        $newproduct = Service::create($request->toArray());
-        return response()->json($request->toArray(), 201);
+        // $newproduct = Service::create($request->toArray());
+        // return response()->json($request->toArray(), 201);
+        $data1 = new Service;
+
+        $data1->services_name = $request['s_name'];
+        $data1->services_code = $request['s_code'];
+        $data1->services_active = $request['s_active'];
+
+        try{
+            $data1->save();
+            //if save
+            return response(['data'=>$data1])->header('Content-Type','Application/Json');
+
+        }catch(QueryException $ex){
+            dd($ex->getMessage());
+        }
     }
 
     //update services
