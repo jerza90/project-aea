@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class VechileInfoController extends Controller
+class ClientVehicleController extends Controller
 {
     //
 }
