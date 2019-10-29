@@ -35,4 +35,8 @@ Route::post('product/{product}','ProductController@update');
 Route::get('service','ServiceController@index');
 Route::get('service/{service}','ServiceController@show');
 Route::post('service','ServiceController@store');
-Route::post('service/{service}','ServiceController@update');
+Route::patch('service','ServiceController@update');
+
+
+//Client_vechiles
+Route::get('client_vehicle','ClientVehicleController@index');
