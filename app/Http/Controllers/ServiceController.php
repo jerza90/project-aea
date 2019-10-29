@@ -38,13 +38,17 @@ class ServiceController extends Controller
     //add new service
     public function store(Request $request)
     {
+
+        // $data_c = $request->getContent(); // if using Content-Type:Application/Json
+        $data = $request->toArray();
+
         // $newproduct = Service::create($request->toArray());
-        // return response()->json($request->toArray(), 201);
         $data1 = new Service;
 
         $data1->services_name = $request['s_name'];
         $data1->services_code = $request['s_code'];
-        $data1->services_active = $request['s_active'];
+        $data1->services_active = $request['s_activ'];
+        // return response()->json($data1->toArray());
 
         try{
             $data1->save();
@@ -58,10 +62,21 @@ class ServiceController extends Controller
 
     //update services
     // *I had to use post requests instead of put/patch, breaking the REST best practices :c
-    public function update(Request $request,Service $service){
-        
-        $service->update($request->toArray());
-        return response()->json(['data'=>$request->all(),'status'=>200]);
+    public function update(Request $request){
+
+        $data = $request->toArray();
+
+
+        if(!empty($request['service_id'])){
+            $data1 = Service::find($request['service_id']);
+            $data1->services_name = trim($request['new_service_name']);
+            if($data1->save()){
+                return response()->json(['data'=>$data,'status'=>200]);
+            }
+
+        }else{
+            return response()->json(['message'=>'ERROR']);
+        }
     }
     //comment
 }
