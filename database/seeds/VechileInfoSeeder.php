@@ -11,8 +11,6 @@ class VechileInfoSeeder extends Seeder
      */
     public function run()
     {
-        //
-        // factory(App\Vechile_info::class,10)->create();
         DB::table('vehicle_info')->insert(array(
             array(
                'vehicle_brand' => 'Alado',
