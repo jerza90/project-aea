@@ -37,6 +37,6 @@ Route::get('service/{service}','ServiceController@show');
 Route::post('service','ServiceController@store');
 Route::patch('service','ServiceController@update');
 
-
 //Client_vechiles
 Route::get('client_vehicle','ClientVehicleController@index');
+Route::post('client_vehicle','ClientVehicleController@store');
