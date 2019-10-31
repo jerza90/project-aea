@@ -44,6 +44,24 @@ class ClientVehicleController extends Controller
         }catch(QueryException $ex){
             dd($ex->getMessage());
         }
+    }
 
+    //update a vehicle of client
+    public function update(Request $request){
+
+        if(!empty($request['id'])){
+            $vehicle = Client_vehicle::find($request['id']);
+            $vehicle->vehicle_brand = trim($request['vehicle_brand']);
+            $vehicle->vehicle_model = trim($request['vehicle_model']);
+            $vehicle->vehicle_cc = trim($request['vehicle_cc']);
+            $vehicle->vehicle_battery_info = trim($request['vehicle_battery_info']);
+            
+            if($vehicle->save()){
+                return response()->json(['data'=>$vehicle,'status'=>200]);
+            }
+
+        }else{
+            return response()->json(['message'=>'ERROR']);
+        }
     }
 }
