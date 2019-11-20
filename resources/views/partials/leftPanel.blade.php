@@ -28,14 +28,38 @@
             <li class="header">MAIN NAVIGATION</li>
             <li class="active treeview menu-open">
                 <a href="#">
-                    <i class="fa fa-dashboard"></i> <span>Product</span>
+                    <i class="fa fa-diamond"></i> <span>Product</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{!! url('/product') !!}"><i class="fa fa-circle-o"></i>Product List</a></li>
-                    <!-- <li class="active"><a href="{!! url('/dashboard-v2') !!}"><i class="fa fa-circle-o"></i> Dashboard v2</a></li> -->
+                    <li><a href="{!! url('/product') !!}"><i class="fa fa-list-ul"></i>Product List</a></li>
+                    <li class="active"><a href=""><i class="fa fa-diamond"></i>Add New</a></li>
+                </ul>
+            </li>
+            <li class="active treeview menu-open">
+                <a href="#">
+                    <i class="fa fa-dashboard"></i> <span>Service</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{!! url('/service') !!}"><i class="fa fa-list-ul"></i>Service List</a></li>
+                    <li class="active"><a href=""><i class="fa fa-circle-o"></i>Add New</a></li>
+                </ul>
+            </li>
+            <li class="active treeview menu-open">
+                <a href="#">
+                    <i class="fa fa-user"></i> <span>Clients</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="active"><a href="{!! url('/client') !!}"><i class="fa fa-list-ul"></i>Clients Listing</a></li>
+                    <li><a href=""><i class="fa fa-user"></i>Maintenance</a></li>
                 </ul>
             </li>
             <li class="treeview">
