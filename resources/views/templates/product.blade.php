@@ -108,8 +108,11 @@
                                 <td>{{$value['product_name']}}</td>
                                 <td>{{$value['product_code']}}</td>
                                 <td>{{number_format($value['product_price_unit'],2)}}</td>
-                                <td>{{$value['product_unit']}}</td>
-                                <td><span class="label label-success">Approved</span></td>
+                                <td><span class="label label-success">{{$value['product_unit']}}</span></td>
+                                <td>
+                                    <button class="btn btn-success btn-sm">Edit</button>
+                                    <button class="btn btn-danger btn-sm">Remove</button>
+                                </td>
                             </tr>
                             @endforeach
                             </tbody>

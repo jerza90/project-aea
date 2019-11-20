@@ -31,3 +31,6 @@ Route::get('/service', 'ServiceController@index')->name('service');
 Route::get('/client', 'ClientController@index')->name('client');
 
 Route::get('/profile','ProfileController@index')->name('profile');
+
+//order
+Route::get('/order','OrderController@index')->name('order');

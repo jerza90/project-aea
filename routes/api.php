@@ -40,3 +40,6 @@ Route::patch('service','ServiceController@update');
 Route::get('client_vehicle','ClientVehicleController@index');
 Route::post('client_vehicle','ClientVehicleController@store');
 Route::patch('client_vehicle','ClientVehicleController@update');
+
+//clients
+Route::get('client','ClientController@index');
