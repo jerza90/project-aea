@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 use App\Service;
 use \Illuminate\Database\QueryException;
-
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
@@ -17,13 +16,20 @@ class ServiceController extends Controller
         // $data = $request->getContent();
         // return response(json_decode($data,true));die();
 
-        if(!empty($request['services_id'])){
-            $res = Service::find($request['services_id']);
+        if($request->wantsJson()){
+            if(!empty($request['services_id'])){
+                $res = Service::find($request['services_id']);
+            }else{
+                $res = Service::all();
+            }
+            // return response(array('data'=>$res,'mesg'=>'OK'),200)->header('Content-Type','Application/Json');
+            return response(json_encode(['data'=>$res,'success'=>'yes']))->header('Content-Type','Application/Json');
+
         }else{
-            $res = Service::all();
+            $data['service'] = Service::limit(100)->offset(0)->get();
+            // return  (new Response($data))->header('Content-Type','Application/Json');
+            return view('templates.services',$data);
         }
-        // return response(array('data'=>$res,'mesg'=>'OK'),200)->header('Content-Type','Application/Json');
-        return response(json_encode(['data'=>$res,'success'=>'yes']))->header('Content-Type','Application/Json');
 
     }
 

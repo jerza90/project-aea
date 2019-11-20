@@ -45,14 +45,14 @@ class LoginController extends Controller
         if ($this->attemptLogin($request)) {
             $user = $this->guard()->user();
             $user->generateToken();
-    
-            return response()->json([
-                'data' => $user->toArray(),
-            ]);
+
+            if($request->wantsJson()){ //if api login
+                return response()->json(['data' => $user->toArray()]);
+            }
+            return view('templates.dashboard-v1');
         }
     
         return $this->sendFailedLoginResponse($request);
     }
-
-
+    
 }
