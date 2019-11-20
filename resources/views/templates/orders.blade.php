@@ -75,7 +75,7 @@
                 <div class="col-xs-12">
                     <div class="box">
                         <div class="box-header">
-                        <h3 class="box-title">Services Listing</h3>
+                        <h3 class="box-title">Orders Listing</h3>
 
                         <div class="box-tools">
                             <div class="input-group input-group-sm hidden-xs" style="width: 150px;">
@@ -93,20 +93,24 @@
                             <thead>
                             <tr>
                                 <th>Num.</th>
-                                <th>Service Name</th>
-                                <th>Service Code</th>
+                                <th>Order ID</th>
+                                <th>Order Description</th>
+                                <th>Date</th>
                                 <th>Status</th>
+                                <th>Client ID</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
                             </tbody>
-                            @foreach($service as $row => $value)
+                            @foreach($orders as $row => $value)
                             <tr>
                                 
                                 <td>{{$row}}.</td>
-                                <td>{{$value['services_name']}}</td>
-                                <td>{{$value['services_code']}}</td>
-                                <td><span class="label label-success">{{$value['services_active']}}</span></td>
+                                <td>{{$value['orders_id']}}</td>
+                                <td>{{$value['orders_description']}}</td>
+                                <td>{{date("d-m-Y" , strtotime ($value['created_at']))}}</td>
+                                <td><span class="label label-success">Approved</span></td>
+                                <td>{{$value['orders_owner']}}</td>
                                 <td>
                                     <button class="btn btn-success btn-sm">Edit</button>
                                     <button class="btn btn-danger btn-sm">Remove</button>

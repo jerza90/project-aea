@@ -28,6 +28,18 @@
             <li class="header">MAIN NAVIGATION</li>
             <li class="active treeview menu-open">
                 <a href="#">
+                    <i class="fa fa-dashboard"></i> <span>Order</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{!! url('/order') !!}"><i class="fa fa-list-ul"></i>Order List</a></li>
+                    <li><a href=""><i class="fa fa-circle-o"></i>Add New</a></li>
+                </ul>
+            </li>
+            <li class="treeview menu">
+                <a href="#">
                     <i class="fa fa-diamond"></i> <span>Product</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -35,10 +47,10 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{!! url('/product') !!}"><i class="fa fa-list-ul"></i>Product List</a></li>
-                    <li class="active"><a href=""><i class="fa fa-diamond"></i>Add New</a></li>
+                    <li><a href=""><i class="fa fa-diamond"></i>Add New</a></li>
                 </ul>
             </li>
-            <li class="active treeview menu-open">
+            <li class="treeview menu">
                 <a href="#">
                     <i class="fa fa-dashboard"></i> <span>Service</span>
                     <span class="pull-right-container">
@@ -47,10 +59,10 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{!! url('/service') !!}"><i class="fa fa-list-ul"></i>Service List</a></li>
-                    <li class="active"><a href=""><i class="fa fa-circle-o"></i>Add New</a></li>
+                    <li><a href=""><i class="fa fa-circle-o"></i>Add New</a></li>
                 </ul>
             </li>
-            <li class="active treeview menu-open">
+            <li class="treeview menu">
                 <a href="#">
                     <i class="fa fa-user"></i> <span>Clients</span>
                     <span class="pull-right-container">
@@ -58,7 +70,7 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="active"><a href="{!! url('/client') !!}"><i class="fa fa-list-ul"></i>Clients Listing</a></li>
+                    <li><a href="{!! url('/client') !!}"><i class="fa fa-list-ul"></i>Clients Listing</a></li>
                     <li><a href=""><i class="fa fa-user"></i>Maintenance</a></li>
                 </ul>
             </li>

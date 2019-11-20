@@ -20,7 +20,7 @@ class ServiceController extends Controller
             if(!empty($request['services_id'])){
                 $res = Service::find($request['services_id']);
             }else{
-                $res = Service::all();
+                $res = Service::all()->limit(100)->offset(0)->get();
             }
             // return response(array('data'=>$res,'mesg'=>'OK'),200)->header('Content-Type','Application/Json');
             return response(json_encode(['data'=>$res,'success'=>'yes']))->header('Content-Type','Application/Json');
