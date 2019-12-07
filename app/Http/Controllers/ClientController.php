@@ -23,5 +23,14 @@ class ClientController extends Controller
             return view('templates.clients',$data);
         }
     }
+
+    public function client_add(Request $request){
+
+        $str = 'saya suka dia';
+        $arr = explode(' ',$str);
+
+        return view('templates.clients_add');
+
+    }
 }
 

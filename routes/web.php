@@ -27,8 +27,9 @@ Route::get('/product', 'ProductController@index')->name('product');
 
 Route::get('/service', 'ServiceController@index')->name('service');
 
-//user
+//client
 Route::get('/client', 'ClientController@index')->name('client');
+Route::get('/client/client_add', 'ClientController@client_add')->name('client_add');
 
 Route::get('/profile','ProfileController@index')->name('profile');
 

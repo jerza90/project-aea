@@ -70,57 +70,59 @@
                 <!-- ./col -->
             </div>
             <!-- /.row -->
-            <!-- row -->
-            <div class="row">
-                <div class="col-md-6">
-                    <a href="{!! url('/client/client_add') !!}"  class="btn btn-primary">+ ADD</a>
-                </div>
-            </div>
-            <!-- row -->
+           
             <!-- Main row -->
             <div class="row">
+                
                 <div class="col-xs-12">
-                    <div class="box">
-                        <div class="box-header">
-                        <h3 class="box-title">Clients</h3>
-
-                        <div class="box-tools">
-                            <div class="input-group input-group-sm hidden-xs" style="width: 150px;">
-                            <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
-                            <div class="input-group-btn">
-                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                            </div>
-                            </div>
-                        </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                        <h3 class="box-title">Add New Client</h3>
                         </div>
                         <!-- /.box-header -->
-                        <div class="box-body table-responsive no-padding">
-                        <table class="table table-hover">
-                            <thead>
-                            <tr>
-                                <th>Num.</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Action</th>
-                            </tr>
-                            </thead>
-                            </tbody>
-                            @foreach($client as $row => $value)
-                            <tr>
-                                
-                                <td>{{$row}}.</td>
-                                <td>{{$value['client_name']}}</td>
-                                <td>{{$value['client_email']}}</td>
-                                <td><span class="label label-success">Approved</span></td>
-                            </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                        </div>
-                        <!-- /.box-body -->
+                        <!-- form start -->
+                        <form role="form" method="post" enctype="multipart/form-data">
+                            
+                            <div class="box-body">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Client Name</label>
+                                            <input type="text" class="form-control" id="client_name" placeholder="Enter Name">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Phone No</label>
+                                            <input type="text" class="form-control" id="client_phone_no" placeholder="Enter Phone No">
+                                    </div>
+
+                                    <div class="form-group">
+                                    <label for="exampleInputPassword1">Email</label>
+                                        <input type="email" class="form-control" id="client_email placeholder" placeholder="Enter Email">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                    <label for="exampleInputFile">Country</label>
+                                    <select class="form-control" name="client_country">
+                                        <option value="1">Malaysia</option>
+                                        <option value="1">Singapore</option>
+                                        <option value="1">Indonesia</option>
+                                    </select>
+
+                                    <div class="form-group">
+                                        <label for="image">Profile Image</label>
+                                        <input type="file" name="user_avatar">
+                                    </div>
+
+                                    <!-- <p class="help-block">Example block-level help text here.</p> -->
+                                </div>
+                            </div>
+                            <!-- /.box-body -->
+
+                            <div class="box-footer">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+
+                        </form>
                     </div>
-                    <!-- /.box -->
                 </div>
                 
             </div>
