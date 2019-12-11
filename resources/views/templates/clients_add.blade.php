@@ -80,23 +80,41 @@
                         <h3 class="box-title">Add New Client</h3>
                         </div>
                         <!-- /.box-header -->
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
+                        @if(Session::has('success'))
+                        <div class="alert alert-success">
+                            {{ Session::get('success') }}
+                            @php
+                                Session::forget('success');
+                            @endphp
+                        </div>
+                        @endif
                         <!-- form start -->
-                        <form role="form" method="post" enctype="multipart/form-data">
-                            
-                            <div class="box-body">
+                        <form action="{{route('client_upload')}}" role="form" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <div class="box-body">  
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Client Name</label>
-                                            <input type="text" class="form-control" id="client_name" placeholder="Enter Name">
+                                            <input type="text" class="form-control" name="client_name" id="client_name" placeholder="Enter Name">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Phone No</label>
-                                            <input type="text" class="form-control" id="client_phone_no" placeholder="Enter Phone No">
+                                            <input type="text" class="form-control" name="client_phone_no" id="client_phone_no" placeholder="Enter Phone No">
                                     </div>
 
                                     <div class="form-group">
                                     <label for="exampleInputPassword1">Email</label>
-                                        <input type="email" class="form-control" id="client_email placeholder" placeholder="Enter Email">
+                                        <input type="email" class="form-control" name="client_email" id="client_email"  placeholder="Enter Email">
                                     </div>
                                     
                                     <div class="form-group">
@@ -109,7 +127,7 @@
 
                                     <div class="form-group">
                                         <label for="image">Profile Image</label>
-                                        <input type="file" name="user_avatar">
+                                        <input type="file" name="user_avatar" id="user_avatar" class="form-control">
                                     </div>
 
                                     <!-- <p class="help-block">Example block-level help text here.</p> -->
