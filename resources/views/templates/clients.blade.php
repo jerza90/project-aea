@@ -70,6 +70,13 @@
                 <!-- ./col -->
             </div>
             <!-- /.row -->
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-6">
+                    <a href="{!! url('/client/client_add') !!}"  class="btn btn-primary">+ ADD</a>
+                </div>
+            </div>
+            <!-- row -->
             <!-- Main row -->
             <div class="row">
                 <div class="col-xs-12">

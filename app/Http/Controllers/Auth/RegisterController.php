@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Route;
 
 class RegisterController extends Controller
 {
@@ -29,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/dashboard';
 
     /**
      * Create a new controller instance.
@@ -50,6 +51,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
+            
             'f_name' => ['required', 'string', 'max:255'],
             'l_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email','unique:users'],
@@ -74,7 +76,12 @@ class RegisterController extends Controller
     }
 
     public function register(Request $request){
+
+        // header('Content-Type:Application/Json');
+        // echo json_encode($request->all());die();
         $this->validator($request->all())->validate();
+        
+        // die();// echo $ayy; die();
 
         // A Registered event is created and will trigger any relevant
         // observers, such as sending a confirmation email or any 
@@ -85,11 +92,14 @@ class RegisterController extends Controller
         // After the user is created, he's logged in.
         $this->guard()->login($user);
 
-        return $this->registered($request,$user) ? : redirect($redirectTo);
+        return $this->registered($request, $user) ? : redirect($this->redirectPath());
     }
 
     public function registered(Request $request,User $user){
-        $user->generateToken();
-        return response()->json(['data' => $user->toArray()], 201);
+
+        if($request->wantsJson()){ // if api register
+            $user->generateToken();
+            return response()->json(['data' => $user->toArray()], 201);
+        }
     }
 }

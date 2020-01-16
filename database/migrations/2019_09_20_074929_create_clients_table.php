@@ -19,6 +19,7 @@ class CreateClientsTable extends Migration
             $table->string('client_hp');
             $table->string('client_email')->unique()->safeEmail;
             $table->integer('country_code')->unsigned();
+            $table->string('client_image')->nullable();
             $table->timestamps();
         });
 
