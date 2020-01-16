@@ -102,6 +102,7 @@
                                 <th>Num.</th>
                                 <th>Name</th>
                                 <th>Email</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -113,6 +114,7 @@
                                 <td>{{$value['client_name']}}</td>
                                 <td>{{$value['client_email']}}</td>
                                 <td><span class="label label-success">Approved</span></td>
+                                <td><a href="{{$value['client_id']}}" ><span class="label label-primary">Edit</span></td>
                             </tr>
                             @endforeach
                             </tbody>

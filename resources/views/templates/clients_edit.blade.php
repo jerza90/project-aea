@@ -99,7 +99,7 @@
                         </div>
                         @endif
                         <!-- form start -->
-                        <form action="{{route('client_create')}}" role="form" method="POST" enctype="multipart/form-data">
+                        <form action="{{route('client_upload')}}" role="form" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="box-body">  
                                     <div class="form-group">
