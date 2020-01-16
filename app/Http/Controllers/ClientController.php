@@ -33,19 +33,24 @@ class ClientController extends Controller
         return view('templates.clients_add');
     }
 
-    public function client_upload(Request $request){
+    public function client_create(Request $request){
 
         $request->validate([
-            'client_email'=>'required|unique:clients|max:255',
-        ],[
-            'client_email.required'=>'Email required!',
-            'client_email.unique'=>'Email already existed in our system!',
-        ]);
+                'client_email'=>'required|unique:clients|max:255',
+            ],
+            [
+                'client_email.required'=>'Email required!',
+                'client_email.unique'=>'Email already existed in our system!',
+            ]);
 
         $imagefolder = public_path('images');
-        $imageName = time().'.'.$request->user_avatar->getClientOriginalExtension();
-        $imagepath = $imagefolder.'/'.$imageName;
-        $request->user_avatar->move($imagefolder, $imageName);
+        $imagepath = '';
+
+        if(isset($request->user_avatar)){
+            $imageName = time().'.'.$request->user_avatar->getClientOriginalExtension();
+            $imagepath = $imagefolder.'/'.$imageName;
+            $request->user_avatar->move($imagefolder, $imageName);
+        }
         
         //new client instance
         $client = new Client;
